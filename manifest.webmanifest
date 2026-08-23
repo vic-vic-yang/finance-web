@@ -1,0 +1,19 @@
+{
+  "name": "司库｜AI 智能财务管家",
+  "short_name": "司库",
+  "description": "面向个人与家庭的 AI 智能财务管家",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7faf8",
+  "theme_color": "#35b9aa",
+  "icons": [
+    {
+      "src": "/assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

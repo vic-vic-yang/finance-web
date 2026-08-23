@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="SIKU">
+  <g>
+    <rect width="256" height="256" fill="#018B8D"/>
+    <circle cx="258" cy="-2" r="74" fill="none" stroke="#7EF3DF" stroke-opacity=".16" stroke-width="2"/>
+    <circle cx="-2" cy="258" r="74" fill="none" stroke="#7EF3DF" stroke-opacity=".16" stroke-width="2"/>
+  </g>
+  <text x="128" y="150" fill="#fff" font-family="Arial Black, Arial, sans-serif" font-size="72" font-weight="900" letter-spacing="1" text-anchor="middle">SIKU</text>
+  <circle cx="200" cy="126" r="3.5" fill="#7EF3DF"/>
+</svg>
