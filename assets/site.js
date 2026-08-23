@@ -46,3 +46,27 @@ document.addEventListener('click', () => {
     contact.querySelector('.wechat-toggle').setAttribute('aria-expanded', 'false');
   });
 });
+
+const demoVideo = document.querySelector('.hero-media video');
+
+if (demoVideo) {
+  demoVideo.muted = true;
+  demoVideo.defaultMuted = true;
+  demoVideo.playsInline = true;
+
+  const tryPlayDemo = () => {
+    if (!demoVideo.paused) return;
+    demoVideo.play().catch(() => {
+      // 部分手机浏览器仍要求首次用户手势，保留海报并等待下次重试。
+    });
+  };
+
+  demoVideo.addEventListener('loadedmetadata', tryPlayDemo);
+  demoVideo.addEventListener('canplay', tryPlayDemo);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tryPlayDemo();
+  });
+  document.addEventListener('pointerdown', tryPlayDemo, { once: true, passive: true });
+  document.addEventListener('touchstart', tryPlayDemo, { once: true, passive: true });
+  tryPlayDemo();
+}
