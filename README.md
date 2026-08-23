@@ -32,5 +32,21 @@ python -m http.server 8088 -d website
 
 ## HTTPS 证书
 
-`www.equitick.top` 当前使用 Let's Encrypt 证书。由于首次签发使用 DNS TXT 校验，证书到期前需重新执行
-DNS 校验续期，再重载 Nginx；可用 `certbot certificates` 查看有效期。
+`www.equitick.top` 使用 Let's Encrypt 证书，当前已改为 webroot 验证并由 Certbot 定时器自动续期，不需要手工添加 DNS TXT 记录。
+
+服务器检查命令：
+
+```bash
+certbot certificates
+systemctl status certbot-renew.timer
+certbot renew --dry-run
+```
+
+Nginx 必须保留 `/.well-known/acme-challenge/` 到 `/var/www/certbot` 的公开访问规则，不能返回 403 或被重定向到业务鉴权页面。
+
+## 发布前检查
+
+- 首页、下载二维码与 APK 下载链接可用。
+- `/privacy/`、`/terms/`、`/sdk/` 可直接访问。
+- `robots.txt` 与 `sitemap.xml` 中使用正式 HTTPS 域名。
+- 页面未公开个人住址、身份证号、私人电话等敏感信息。
